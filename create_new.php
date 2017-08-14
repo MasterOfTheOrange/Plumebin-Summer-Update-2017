@@ -251,11 +251,12 @@ if (isset($_POST['submit'])) {
                 feed TEXT,
                 feed_name TEXT,
                 times TEXT,
-                feed_pics LONGBLOB
+                feed_pics LONGBLOB,
+                phone_number TEXT
             )";
             mysql_query($query_three);
-            $query_128 = "INSERT INTO $name(username, subscribed_to_you) VALUES(
-                '{$_POST['username']}', '{$_POST['username']}'
+            $query_128 = "INSERT INTO $name(username, subscribed_to_you, phone_number) VALUES(
+                '{$_POST['username']}', '{$_POST['username']}', '{$_POST['phone_number']}'
             )";
             mysql_query($query_128);
             $_SESSION['username'] = $_POST['username'];

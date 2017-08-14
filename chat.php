@@ -21,6 +21,7 @@
         mysql_connect('localhost', 'emilio2', 'k421k421');
         mysql_select_db('spade');
         session_start();
+        error_reporting(0);
         $user = $_SESSION['username'];
         include("public/notify.php");
 
@@ -93,11 +94,13 @@
 
                       $number = $row['phone_number'];
 
-                      notify($config, $number, $user . ' just started a message with you on plumebin.com');
-
                     }
                   }
                 }
+                if (is_numeric($number)) {
+                  notify($config, $number, $user . ' just started a message with you on plumebin.com');
+                }
+
 
                 //refreshes the page to update new tables
                 header('Location: chat.php');

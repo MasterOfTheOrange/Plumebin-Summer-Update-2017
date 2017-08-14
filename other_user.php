@@ -79,15 +79,15 @@
                     $location = "other_user.php?username=" . $_GET['username'];
                     header('Location: ' . $location . ' ');
 
-                    $nu = $_GET['username'];
-                    $nquery = "SELECT * FROM $nu";
-                    if ($r = mysql_query($nquery)) {
-                      while ($row = mysql_fetch_array($r)) {
-                        $number = $row['phone_number'];
-                        notify($config, $number, 'someone subscribed to you on plumebin.com , check your notifications!');
-                        print mysql_error();
-                      }
-                    }
+                    // $nu = $_GET['username'];
+                    // $nquery = "SELECT * FROM $nu";
+                    // if ($r = mysql_query($nquery)) {
+                    //   while ($row = mysql_fetch_array($r)) {
+                    //     $number = $row['phone_number'];
+                    //     notify($config, $number, 'someone subscribed to you on plumebin.com , check your notifications!');
+                    //     print mysql_error();
+                    //   }
+                    // }
 
                 } else {
                     //unsubscribing

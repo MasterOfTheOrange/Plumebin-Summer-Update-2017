@@ -13,6 +13,7 @@
 
         <?php
         session_start();
+        error_reporting(0);
         if (isset($_POST['chat'])) {
             $_SESSION['chat_name'] = $_POST['chat'];
             header('Location: chat_r.php');
@@ -60,11 +61,13 @@
 
                               $number = $row['phone_number'];
 
-                              notify($config, $number, 'You just got a message from ' . $_SESSION['username'] . ' on plumebin.com');
-
                             }
                           }
                         }
+                        if (is_numeric($number)) {
+                          notify($config, $number, 'You just got a message from ' . $_SESSION['username'] . ' on plumebin.com');
+                        }
+
             }
         }
 
